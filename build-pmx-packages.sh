@@ -10,6 +10,7 @@ apt-get update
 apt-get install -y dkms build-essential devscripts fakeroot quilt dh-make dialog
 apt-get remove -y linux-headers-*
 
+sed -i'' -e 's,linux-image,pve-kernel,g' /etc/dkms/template-dkms-mkbmdeb/debian/control
 
 PKGS=$(apt-cache search pve-headers-* 2>/dev/null|grep -F 'pve-headers-5.11.'|egrep -v '5\.11\.(0-1|7-1|12-1)-pve' |cut -d ' ' -f 1)
 apt-get install -y $PKGS
