@@ -1,9 +1,15 @@
 # SPDX-License-Identifier: GPL-2.0
 
-include ${srctree}/${src}/magic.mk
--include ${srctree}/${src}/priv_def.mk
+#include ${srctree}/${src}/magic.mk
+#-include ${srctree}/${src}/priv_def.mk
 
-CONFIG_AUFS_FS := m
+CONFIG_AUFS_FS = m
+AUFS_DEF_CONFIG = -DCONFIG_AUFS_FS_MODULE -UCONFIG_AUFS
+include ${src}/magic.mk
+include ${src}/config.mk
+export CONFIG_AUFS_FS
+
+EXTRA_CFLAGS += ${AUFS_DEF_CONFIG}
 
 # cf. include/linux/kernel.h
 # enable pr_debug
@@ -39,3 +45,5 @@ aufs-$(CONFIG_AUFS_RDU) += rdu.o
 aufs-$(CONFIG_AUFS_BR_HFSPLUS) += hfsplus.o
 aufs-$(CONFIG_AUFS_DEBUG) += debug.o
 aufs-$(CONFIG_AUFS_MAGIC_SYSRQ) += sysrq.o
+
+
