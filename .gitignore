@@ -50,3 +50,12 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+packages/
+
+debian/*log
+debian/*.debhelper
+debian/*.substvars
+debian/aufs-dkms/
+debian/debhelper-build-stamp
+debian/files

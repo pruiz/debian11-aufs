@@ -1,0 +1,8 @@
+Source: aufs-dkms
+Maintainer: Pablo Ruiz <pablo.ruiz@gmail.com>
+Build-Depends: debhelper (>= 11), dkms
+
+Package: aufs-dkms
+Architecture: all
+Depends: ${misc:Depends}
+Description: DKMS source for aufs driver from https://github.com/pruiz/debian11-aufs
